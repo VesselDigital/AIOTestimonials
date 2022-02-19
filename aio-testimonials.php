@@ -3,11 +3,11 @@
  * AIO Testimonials
  *
  * Plugin Name: AIO Testimonials
- * Plugin URI:  https://reevetom.com/plugins/aio-testimonials/
+ * Plugin URI:  https://vesseldigital.co.uk/plugins/aio-testimonials/
  * Description: Your all in one testimonials plugin, easily collect and display testimonials from your clients.
  * Version:     1.0
- * Author:      Tom Reeve
- * Author URI:  https://reevetom.com
+ * Author:      VesselDigital
+ * Author URI:  https://vesseldigital.co.uk/plugins
  * License:     GPLv2 or later
  * License URI: http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * Text Domain: aio-testimonials
@@ -26,6 +26,7 @@
 if(!class_exists("AIOTestimonials")) {
 
     define("AIO_TESTIMONIALS_PATH", plugin_dir_path(__FILE__));
+    define("AIO_TESTIMONIALS_URL", plugin_dir_url(__FILE__));
 
     class AIOTestimonials {
 

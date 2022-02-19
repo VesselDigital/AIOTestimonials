@@ -60,6 +60,16 @@ class TestimonialQuery
     }
 
     /**
+     * Get the total amount of pages
+     * 
+     * @return int
+     */
+    public function total_pages()
+    {
+        return $this->query->max_num_pages;
+    }
+
+    /**
      * Get testimonials as testimonial class
      * 
      * @return \AIOTestimonials\Classes\Testimonial[]

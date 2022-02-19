@@ -52,6 +52,13 @@ class Shortcode
      */
     public function handle_shortcode($atts) {
         $this->args = $atts;
+
+        $style = "simple";
+        if(isset($atts["theme"])) {
+            $style = $atts["theme"];
+        }
+
+        $this->load_styles($style);
         return $this->render();
     }
 
@@ -92,10 +99,35 @@ class Shortcode
         $default_args = array(
             'post_status' => 'publish',
         );
+
+        if(isset($args["orderby"]) && $args["orderby"] == "rating") {
+            $args["meta_key"] = "testimonial_rating";
+            $args["orderby"] = "meta_value_num";
+        }
+
         $query_args = array_merge($default_args, $args);
 
         $query = new \AIOTestimonials\Classes\TestimonialQuery($query_args);       
         return $query;
+    }
+
+    /**
+     * Load in the styles required
+     * 
+     * @param string $theme
+     * @return void
+     */
+    protected function load_styles($theme = "simple") {
+        if($theme != "custom") {
+            wp_enqueue_style( 'dashicons' ); 
+        }
+        switch($theme) {
+            case "simple":
+                wp_enqueue_style("aiotestimonials-testimonial-simple", AIO_TESTIMONIALS_URL . "assets/css/style-simple.css");
+                break;
+            default:
+                break;
+        }
     }
 
     /**

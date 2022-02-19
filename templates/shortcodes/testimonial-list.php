@@ -21,4 +21,17 @@
         }
     }
     ?>
+
+    <?php if($this->paginate): ?>
+        <div class="pages">
+            <?php
+                echo paginate_links([
+                    'base' => add_query_arg('testimonial_page', '%#%'),
+                    'format' => '?testimonial_page=%#%',
+                    'total' => $testimonials->total_pages(),
+                    'current' => $this->page,
+                ]);    
+            ?>
+        </div>
+    <?php endif; ?>
 </div>

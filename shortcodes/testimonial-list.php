@@ -19,6 +19,13 @@ class TestimonialList extends Shortcode
      */
     public $shortcode = "testimonial_list";
 
+    /**
+     * Current page?
+     * 
+     * @var int
+     */
+    public $page = 1;
+
 
     /**
      * Render the shortcode
@@ -27,10 +34,33 @@ class TestimonialList extends Shortcode
      */
     public function render()
     {
-        
+        $args = [];
+
+        // How many per page
+        if(isset($this->args["per_page"])) {
+            $args["posts_per_page"] = $this->args["per_page"];
+        }
+        // How many per page
+        if(isset($this->args["paginate"])) {
+            $this->paginate = true;
+            $this->current_page = $_GET["testimonial_page"];
+            
+            if(isset($_GET["testimonial_page"])) {
+                $this->page = $_GET["testimonial_page"];
+            }
+            $args["paged"] = $this->page;
+        }
+        // Ordering
+        if(isset($this->args["order_by"])) {
+            $args["orderby"] = $this->args["order_by"];
+        }
+        if(isset($this->args["order"])) {
+            $args["order"] = $this->args["order"];
+        }
+
         // Get Testimonials
-        $testimonials = $this->get_testimonials();
-        
+        $testimonials = $this->get_testimonials($args);
+
         // Check if the current theme has a template for this shortcode.
         $template = locate_template("shortcodes/testimonial-list.php");
         if(!$template) {
