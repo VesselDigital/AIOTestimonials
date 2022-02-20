@@ -14,4 +14,4 @@ If you wish to add a feature to the plugin please feel free to fork the reposito
 If you would like to see our documentation on how to edit / add your own templates and styling to the plugin please check here: [https://opensource.vesseldigital.co.uk/aio-testimonials/](https://opensource.vesseldigital.co.uk/aio-testimonials/)
 
 ### Issues and Support
-If you have any issues or queries please feel free to contact us via our [support forum](https://wordpress.org/support/plugin/aio-testimonials) or submit an issue on our [GitHub repository](https://github.com.com/vesseldigital/aio-testimonials).
+If you have any issues or queries please feel free to contact us via our [support forum](https://wordpress.org/support/plugin/aio-testimonials) or submit an issue on our [GitHub repository](https://github.com/VesselDigital/AIOTestimonials).
