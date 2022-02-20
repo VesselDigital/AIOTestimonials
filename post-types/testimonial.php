@@ -82,7 +82,7 @@ class Testimonial
         $labels = array(
             'name'                       => _x( 'Testimonial Categories', 'Taxonomy General Name', 'testimonial_category' ),
             'singular_name'              => _x( 'Testimonial Category', 'Taxonomy Singular Name', 'testimonial_category' ),
-            'menu_name'                  => __( 'Category', 'testimonial_category' ),
+            'menu_name'                  => __( 'Categories', 'testimonial_category' ),
             'all_items'                  => __( 'All Categories', 'testimonial_category' ),
             'parent_item'                => __( 'Parent Category', 'testimonial_category' ),
             'parent_item_colon'          => __( 'Parent Category:', 'testimonial_category' ),
