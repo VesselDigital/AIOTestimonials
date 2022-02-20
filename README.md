@@ -11,7 +11,7 @@ AIOTestimonials allows for extensive customisation from template files, to theme
 ## Developers
 If you wish to add a feature to the plugin please feel free to fork the repository and submit a pull request and, we'll be happy to review and add your feature otherwise you may submit an issue and we'll get to work. We're always looking for new features and improvements!
 
-If you would like to see our documentation on how to edit / add your own templates and styling to the plugin please check here: [https://opensource.vesseldigital.co.uk/aio-testimonials/](https://opensource.vesseldigital.co.uk/aio-testimonials/)
+If you would like to see our documentation on how to edit / add your own templates and styling to the plugin please check here: [https://aiotestimonials.vesseldigital.co.uk](https://aiotestimonials.vesseldigital.co.uk)
 
 ## Issues and Support
 If you have any issues or queries please feel free to contact us via our [support forum](https://wordpress.org/support/plugin/aio-testimonials) or submit an issue on our [GitHub repository](https://github.com/VesselDigital/AIOTestimonials).
