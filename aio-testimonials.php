@@ -50,6 +50,9 @@ if(!class_exists("AIOTestimonials")) {
             $this->register_post_types();
             $this->register_metaboxes();
             $this->register_shortcodes();
+
+            $this->register_styles();
+            $this->register_scripts();
         }
 
 
@@ -70,6 +73,8 @@ if(!class_exists("AIOTestimonials")) {
             include_once "shortcodes/shortcode.php";
             include_once "shortcodes/single-testimonial.php";
             include_once "shortcodes/testimonial-list.php";
+            include_once "shortcodes/testimonial-list-filters.php";
+            include_once "shortcodes/random-testimonial.php";
         }
 
         /**
@@ -115,10 +120,29 @@ if(!class_exists("AIOTestimonials")) {
         private function register_shortcodes() {
             new \AIOTestimonials\Shortcodes\SingleTestimonial;
             new \AIOTestimonials\Shortcodes\TestimonialList;
+            new \AIOTestimonials\Shortcodes\TestimonialListFilters;
+            new \AIOTestimonials\Shortcodes\RandomTestimonial;
 
             return $this;
         }
 
+        /**
+         * Register the plugin styles
+         * 
+         * @return \AIOTestimonials
+         */
+        private function register_styles() {
+            wp_register_style("aiotestimonials-testimonial-simple", AIO_TESTIMONIALS_URL . "assets/css/style-simple.css", [], "1.0.0");
+        }
+
+        /**
+         * Register the plugin scripts
+         * 
+         * @return \AIOTestimonials
+         */
+        private function register_scripts() {
+            wp_register_script("aiotestimonials-testimonials-filter", AIO_TESTIMONIALS_URL . "assets/js/testimonials-filter.js", [], "1.0.0", true);
+        }
     }
 
 

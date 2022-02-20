@@ -17,7 +17,7 @@
             /**
              * @var \AIOTestimonials\Classes\Testimonial $testimonial
              */
-            $testimonial->render(true, true);
+            $testimonial->set_render_settings($this->get_render_settings())->render(true);
         }
     }
     ?>

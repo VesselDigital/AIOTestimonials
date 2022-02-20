@@ -64,10 +64,31 @@ class Testimonial
     public $content;
 
     /**
-     * New Testimonial Instance
+     * Render settings
+     * 
+     * @var array
      */
-    function __construct(\WP_Post $post)
-    {
+    public $render_settings = [
+        "show_image" => true,
+        "show_title" => true,
+        "show_client_name" => true,
+        "show_client_title" => true,
+        "show_client_email" => true,
+        "show_product" => true,
+        "show_date" => true,
+        "show_rating_as_stars" => true,
+    ];
+
+    /**
+     * New Testimonial Instance
+     * 
+     * @param \WP_Post $post
+     * @param array $render_settings
+     * 
+     * @return \AIOTestimonials\Classes\Testimonial
+     */
+    function __construct(\WP_Post $post, array $render_settings = []){
+        $this->render_settings = array_merge($this->render_settings, $render_settings);
         $this->post = $post;
 
         $this->title = $this->post->post_title;
@@ -250,6 +271,18 @@ class Testimonial
         } else {
             return json_encode($json);
         }
+    }
+
+    /**
+     * Set the render settings
+     * 
+     * @param array $render_settings
+     * @return \AIOTestimonials\Classes\Testimonial
+     */
+    public function set_render_settings(array $render_settings)
+    {
+        $this->render_settings = array_merge($this->render_settings, $render_settings);
+        return $this;
     }
 
     /**

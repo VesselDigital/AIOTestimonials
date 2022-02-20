@@ -2,7 +2,7 @@
 
 namespace AIOTestimonials\Shortcodes;
 
-class SingleTestimonial extends Shortcode
+class RandomTestimonial extends Shortcode
 {
 
     /**
@@ -17,7 +17,7 @@ class SingleTestimonial extends Shortcode
      * 
      * @var string
      */
-    public $shortcode = "single_testimonial";
+    public $shortcode = "random_testimonial";
 
 
     /**
@@ -27,22 +27,17 @@ class SingleTestimonial extends Shortcode
      */
     public function render()
     {
-        // Verify an ID has been passed.
-        if (!isset($this->args["id"])) {
-            return "";
-        }
-
-        $testimonial_id = $this->args['id'];
-        $testimonial = $this->single_testimonial($testimonial_id);
+        $args = [
+            "orderby" => "rand",
+        ];
+        $testimonial = $this->single_testimonial(-1, $args);
         if ($testimonial === false) {
             return '';
         }
 
-        $render_settings = $this->get_render_settings();
+       $render_settings = $this->get_render_settings();        
 
         return $testimonial->set_render_settings($render_settings)
             ->render();
-
-        return $testimonial->render();
     }
 }

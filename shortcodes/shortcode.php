@@ -68,7 +68,7 @@ class Shortcode
      * @param int $id
      * @param array $args
      * @param bool $as_wp_post
-     * @return \AIOTestimonials\Classes\Testimonial|\WP_Post
+     * @return \AIOTestimonials\Classes\Testimonial|\WP_Post|boolean
      */
     protected function single_testimonial($id, $args = [], $as_wp_post = false) {
         $default_args = array(
@@ -112,6 +112,54 @@ class Shortcode
     }
 
     /**
+     * Build the render settings array
+     * 
+     * @return array
+     */
+    protected function get_render_settings() {
+        /**
+         * Valid render settings:
+         * 
+         * show_image
+         * show_title
+         * show_client_name
+         * show_client_title
+         * show_client_email
+         * show_product
+         * show_rating_as_stars
+         * show_date
+         */
+
+        $render_settings = [];
+        if(isset($this->args["show_image"])) {
+            $render_settings["show_image"] = $this->args["show_image"];
+        }
+        if(isset($this->args["show_title"])) {
+            $render_settings["show_title"] = $this->args["show_title"];
+        }
+        if(isset($this->args["show_client_name"])) {
+            $render_settings["show_client_name"] = $this->args["show_client_name"];
+        }
+        if(isset($this->args["show_client_title"])) {
+            $render_settings["show_client_title"] = $this->args["show_client_title"];
+        }
+        if(isset($this->args["show_client_email"])) {
+            $render_settings["show_client_email"] = $this->args["show_client_email"];
+        }
+        if(isset($this->args["show_product"])) {
+            $render_settings["show_product"] = $this->args["show_product"];
+        }
+        if(isset($this->args["show_rating_as_stars"])) {
+            $render_settings["show_rating_as_stars"] = $this->args["show_rating_as_stars"];
+        }
+        if(isset($this->args["show_date"])) {
+            $render_settings["show_date"] = $this->args["show_date"];
+        }
+
+        return $render_settings;
+    }
+
+    /**
      * Load in the styles required
      * 
      * @param string $theme
@@ -123,7 +171,7 @@ class Shortcode
         }
         switch($theme) {
             case "simple":
-                wp_enqueue_style("aiotestimonials-testimonial-simple", AIO_TESTIMONIALS_URL . "assets/css/style-simple.css");
+                wp_enqueue_style("aiotestimonials-testimonial-simple");
                 break;
             default:
                 break;
