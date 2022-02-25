@@ -4,7 +4,7 @@ This class handles the initialization of the testimonial post types and taxonomi
 
 ## Functions
 
-### ```php static function register_post_type(): void```
+### ```static function register_post_type(): void```
 Called on init to register the testimonial post type using WordPress internal functions.
 
 ```php
@@ -61,7 +61,7 @@ register_post_type( 'testimonial', $args );
 ```
 
 
-### ```php static function register_category_taxonomy():void ```
+### ```static function register_category_taxonomy(): void ```
 Called on init, but after the post type has been registered, to register the testimonial category taxonomy using WordPress internal functions.
 
 ```php

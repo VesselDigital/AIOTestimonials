@@ -7,7 +7,7 @@ This is the base class for metaboxes created by the plugin.
 ### ```__construct(): \AIOTestimonials\Metaboxes\Metabox```
 Called on the creation of the metabox and adds an action to the `add_meta_boxes` hook to register the current metabox and also adds a `save_post` hook to save the metabox data on post save.
 
-### ```add_meta_boxes():void ```
+### ```add_meta_boxes(): void ```
 Adds the metabox to the post edit screen using WordPress function: (`add_meta_box`).
 
 ### ```meta_box_callback(\WP_Post $post): void```

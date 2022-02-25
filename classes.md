@@ -8,7 +8,7 @@ Internal classes are ones mainly for internal plugin usage and contributors know
 - [AIOTestimonials](classes/AIOTestimonials.md)
 - [\AIOTestimonials\PostTypes\Testimonial](classes/PostTypes/Testimonial.md)
 - [\AIOTestimonials\Metabox\Metabox](classes/Metabox/Metabox.md)
-- [\AIOTestimonials\Metabox\TestimonialDetailsMetabox](classes/Metabox/TestimonialDetailsMetabox.md)
+- [\AIOTestimonials\Metabox\TestimonialDetailsMetaBox](classes/Metabox/TestimonialDetailsMetaBox.md)
 - [\AIOTestimonials\Shortcodes\Shortcode](classes/Shortcodes/Shortcode.md)
 - [\AIOTestimonials\Shortcodes\SingleTestimonial](classes/Shortcodes/SingleTestimonial.md)
 - [\AIOTestimonials\Shortcodes\TestimonialList](classes/Shortcodes/TestimonialList.md)
