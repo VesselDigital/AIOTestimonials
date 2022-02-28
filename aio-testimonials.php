@@ -62,6 +62,7 @@ if(!class_exists("AIOTestimonials")) {
          * @return void
          */
         private function autoload() {
+            include_once "classes/AverageScore.php";
             include_once "classes/Testimonial.php";
             include_once "classes/TestimonialQuery.php";
 
@@ -75,6 +76,7 @@ if(!class_exists("AIOTestimonials")) {
             include_once "shortcodes/testimonial-list.php";
             include_once "shortcodes/testimonial-list-filters.php";
             include_once "shortcodes/random-testimonial.php";
+            include_once "shortcodes/testimonial-average-score.php";
         }
 
         /**
@@ -122,6 +124,7 @@ if(!class_exists("AIOTestimonials")) {
             new \AIOTestimonials\Shortcodes\TestimonialList;
             new \AIOTestimonials\Shortcodes\TestimonialListFilters;
             new \AIOTestimonials\Shortcodes\RandomTestimonial;
+            new \AIOTestimonials\Shortcodes\TestimonialAverageScore;
 
             return $this;
         }
