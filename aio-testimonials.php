@@ -92,6 +92,7 @@ if(!class_exists("AIOTestimonials")) {
 
             include_once "actions/Action.php";
             include_once "actions/RunAverageScore.php";
+            include_once "actions/AutoRunAverageScore.php";
         }
 
         /**
@@ -162,6 +163,9 @@ if(!class_exists("AIOTestimonials")) {
          */
         private function register_actions() {
             $this->actions["run_average_score"] = new \AIOTestimonials\Actions\RunAverageScore;
+            
+            
+            new \AIOTestimonials\Actions\AutoRunAverageScore;
 
             return $this;
         }

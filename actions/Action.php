@@ -28,6 +28,13 @@ class Action
      */
     public $data;
 
+    /**
+     * Is a native wordpress action?
+     * 
+     * @var boolean
+     */
+    public $is_native = false;
+
 
     /**
      * On new action created
@@ -36,7 +43,11 @@ class Action
      */
     public function __construct()
     {
-        add_action( 'admin_post_aiotestimonials_' . $this->action, [$this, '_handle'] );
+        if($this->is_native) {
+            add_action($this->action, array($this, 'handle'));
+        } else {
+            add_action( 'admin_post_aiotestimonials_' . $this->action, [$this, '_handle'] );
+        }
     }
 
     /**

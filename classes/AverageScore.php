@@ -99,13 +99,4 @@ class AverageScore
         return \DateTime::createFromFormat("Y-m-d H:i:s", $last_date);
     }
 
-    /**
-     * Get the next recalculation date
-     * 
-     * @return \DateTime|string
-     */
-    public static function getNextRecalculation()
-    {
-    }
-
 }
