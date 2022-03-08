@@ -29,14 +29,22 @@ class Page
      */
     public function __construct()
     {
+        add_action( 'admin_menu', [$this, 'register_menu'] );
+    }
+
+    /**
+     * Register the menu
+     * 
+     * @return void
+     */
+    public function register_menu() {
         add_submenu_page(
-            "edit.php?post_type=testimonial",
+            'edit.php?post_type=testimonial',
             $this->title,
-            $this->title,
-            "manage_options",
+            $this->menu_title,
+            'manage_options',
             $this->slug,
             [$this, "render"]
         );
     }
-
 }

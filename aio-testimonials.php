@@ -31,6 +31,13 @@ if(!class_exists("AIOTestimonials")) {
     class AIOTestimonials {
 
         /**
+         * List of all registered actions
+         * 
+         * @var array
+         */
+        public $actions = [];
+
+        /**
          * On construction of the AIOTestimonials instance
          * 
          * @return \AIOTestimonials
@@ -50,6 +57,8 @@ if(!class_exists("AIOTestimonials")) {
             $this->register_post_types();
             $this->register_metaboxes();
             $this->register_shortcodes();
+            $this->register_pages();
+            $this->register_actions();
 
             $this->register_styles();
             $this->register_scripts();
@@ -77,6 +86,12 @@ if(!class_exists("AIOTestimonials")) {
             include_once "shortcodes/testimonial-list-filters.php";
             include_once "shortcodes/random-testimonial.php";
             include_once "shortcodes/testimonial-average-score.php";
+
+            include_once "pages/Page.php";
+            include_once "pages/AverageScore.php";
+
+            include_once "actions/Action.php";
+            include_once "actions/RunAverageScore.php";
         }
 
         /**
@@ -125,6 +140,28 @@ if(!class_exists("AIOTestimonials")) {
             new \AIOTestimonials\Shortcodes\TestimonialListFilters;
             new \AIOTestimonials\Shortcodes\RandomTestimonial;
             new \AIOTestimonials\Shortcodes\TestimonialAverageScore;
+
+            return $this;
+        }
+
+        /**
+         * Load and register the pages
+         * 
+         * @return \AIOTestimonials
+         */
+        private function register_pages() {
+            new \AIOTestimonials\Pages\AverageScore;
+
+            return $this;
+        }
+
+        /**
+         * Load and register the actions
+         * 
+         * @return \AIOTestimonials
+         */
+        private function register_actions() {
+            $this->actions["run_average_score"] = new \AIOTestimonials\Actions\RunAverageScore;
 
             return $this;
         }

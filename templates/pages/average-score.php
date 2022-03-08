@@ -10,7 +10,13 @@
                 <table class="form-table">
                     <tr>
                         <th>Last calculated</th>
-                        <td>Never</td>
+                        <td>
+                            <?php if($last_recalc instanceof DateTime): ?>
+                                <?php echo $last_recalc->format("jS M Y \a\\t h:i:s a"); ?>
+                            <?php else: ?>
+                                <?php echo esc_html($last_recalc); ?>
+                            <?php endif; ?>
+                        </td>
                     </tr>
                     <tr>
                         <th>Next re-calculation</th>
@@ -37,7 +43,8 @@
                                     <input type="submit" class="button button-primary" value="Save Settings" />
                                 </form>
                                 <form action="admin-post.php" method="POST" style="margin-left: 10px">
-                                    <input type="submit" class="button button-secondary" value="Save Settings" />
+                                    <?php $aiotestimonials->actions["run_average_score"]->get_form(true); ?>
+                                    <input type="submit" class="button button-secondary" value="Update Score Now" />
                                 </form>
                             </div>
                         </td>

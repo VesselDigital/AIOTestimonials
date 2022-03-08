@@ -4,7 +4,7 @@ namespace AIOTestimonials\Pages;
  * Average score control page class
  */
 
-class AverageScore
+class AverageScore extends Page
 {
 
     /**
@@ -13,6 +13,13 @@ class AverageScore
      * @var string
      */
     public $title = "Testimonial Average Score";
+
+    /**
+     * Menu title
+     * 
+     * @var string
+     */
+    public $menu_title = "Average Score";
 
     /**
      * The pages slug
@@ -29,8 +36,10 @@ class AverageScore
      */
     public function render()
     {
+        global $aiotestimonials;
         $current_rating = \AIOTestimonials\Classes\AverageScore::getScore();
-
+        $last_recalc = \AIOTestimonials\Classes\AverageScore::getLastRecalculation();
+        
         include_once AIO_TESTIMONIALS_PATH . "templates/pages/average-score.php";
     }
 
